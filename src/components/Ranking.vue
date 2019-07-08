@@ -6,7 +6,7 @@
 
             <v-layout row wrap align-center class="images-container">
 
-                 <v-flex xs12 offset-sm2 sm8 offset-md3 md6 text-xs-center v-for="(cat, index) in cats">
+                 <v-flex xs12 offset-sm2 sm8 offset-md4 md4 text-xs-center v-for="(cat, index) in cats">
 
                      <img :src="cat.image">
                      <v-layout class="rank" text-xs-center align-center justify-center>
@@ -99,13 +99,13 @@ img {
 
 .rank {
     position: relative;
-    left: 94%;
-    bottom: 3vw;
+    left: 46%;
+    bottom: 35px;
     border-radius: 50%;
     opacity: 0.7;
-    font-size: 5vw;
-    width: 5vw;
-    height: 5vw;
+    font-size: 2em;
+    width: 60px;
+    height: 60px;
     background-color: var(--v-primary-base);
 
 }
