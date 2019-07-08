@@ -4,7 +4,9 @@
 
         <v-container grid-list-md fill-height>
 
-            <v-layout row wrap fill-height align-center>
+            <v-layout row wrap fill-height align-center text-xs-center>
+
+                <h3 class="hidden-xs-only" style="width: 100%;">Vote for the cutest !</h3>
 
                  <v-flex offset-sm2 sm4 xs12 text-xs-center>
                     <CatAvatar
@@ -31,7 +33,7 @@
                  <v-flex xs12 sm6 offset-sm3 text-xs-center mt-3>
 
 
-                    <v-btn round color="primary" to="/about">
+                    <v-btn round color="primary" to="/ranking">
                         <span>See ranking</span>
                     </v-btn>
 
@@ -214,6 +216,12 @@ a {
 }
 
 
+h3 {
+
+    font-size: 2em;
+
+}
+
 
 
 .chosen-leave-active {
@@ -244,5 +252,6 @@ a {
   transform: translateX(100vw);
   opacity: 0;
 }
+
 
 </style>
