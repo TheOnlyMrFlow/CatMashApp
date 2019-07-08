@@ -4,7 +4,7 @@
     v-if="show"
     size=35vh
     contain>
-        <img :src="image" alt="avatar">
+        <img :src="image" alt="avatar" @load="loadedEvent">
 </v-avatar>
 
 <v-avatar 
@@ -27,6 +27,7 @@
 export default {
     data () {
         return {
+            loaded: false
         }
     },
     props: {
@@ -34,6 +35,9 @@ export default {
         show: Boolean
     },
     methods: {
+        loadedEvent() {
+            this.loaded = true;
+        }
     }
   }
 </script>

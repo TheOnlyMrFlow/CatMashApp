@@ -12,8 +12,8 @@ export default new Router({
       component: Mash
     },
     {
-      path: '/about',
-      name: 'about',
+      path: '/ranking',
+      name: 'ranking',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
