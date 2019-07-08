@@ -13,13 +13,41 @@
       
 import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
-import HomeView from '../../src/views/Home'
+import App from '../../src/App'
+import MashView from '../../src/components/Mash'
 
-describe('UserView', () => {
-  it('renders the component', () => {
+describe('App layout', () => {
+
+  const wrapper = shallowMount(App)
+
+
+  it('renders the toolbar title', () => {
     // arrange
-    const wrapper = shallowMount(HomeView)
-    // assert
-    expect(wrapper.html()).to.include('world')
+    
+
+    let toolbar = wrapper.find('v-toolbar-stub')
+    let titles = toolbar.findAll('span')
+    
+    expect(titles.at(0).html()).to.contain('CATMASH');
+    expect(titles.at(1).html()).to.contain('by MrFlow');
+
   })
+
+})
+
+describe('Mash component', () => {
+
+  const wrapper = shallowMount(MashView)
+
+  let images = wrapper.findAll('v-img-stub')    
+
+  it('renders two and only two images', () => {
+    expect(images.length).equals(2)
+  })
+
+  it(' dvsd ', () => {
+    
+    expect(images.at(0).props).equals(2)
+  })
+
 })
