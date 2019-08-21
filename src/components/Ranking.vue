@@ -45,6 +45,7 @@ import { axios } from 'axios'
         }
     },
     created () {
+        window.scrollTo(0, 1000);
         this.loadCats();
     },
     methods: {

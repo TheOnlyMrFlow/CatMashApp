@@ -53,8 +53,6 @@
 
 import CatAvatar from './CatAvatar'
 import { setTimeout } from 'timers';
-import { log } from 'util';
-import { axios } from 'axios'
 
   export default {
 
@@ -70,14 +68,14 @@ import { axios } from 'axios'
             catOne: {
                 selected: false,
                 notSelected: false,
-                image: String,
-                id: String
+                image: '',
+                id: ''
             },
             catTwo: {
                 selected: false,
                 notSelected: false,
-                image: String,
-                id: String
+                image: '',
+                id: ''
             }
         }
     },
@@ -104,8 +102,11 @@ import { axios } from 'axios'
                 .then(response => {
 
                     let data = response.data;
-
+                    
+                    // eslint-disable-next-line
                     console.log(data[0].image);
+
+                    // eslint-disable-next-line
                     console.log(data[1].image);
                     
 
@@ -121,8 +122,9 @@ import { axios } from 'axios'
 
                 })
                 .catch(error => {
-
-                    console.log(error);
+                    
+                    // eslint-disable-next-line
+                   console.log(error);
                     
 
                 })
@@ -144,7 +146,8 @@ import { axios } from 'axios'
 
 
             if (nb !== 1 && nb !== 2) {
-                error.log('Cannot be anything than 1 or 2 bro')
+                // eslint-disable-next-line
+                console.error('Cannot be anything than 1 or 2 bro')
                 return;
             }
             
@@ -183,11 +186,13 @@ import { axios } from 'axios'
                     {}
                 )
                 .then(response => {
-                    console.log(response);
+                    // eslint-disable-next-line
+                    console.error(response);
                     
                 })
                 .catch(error => {
-                    console.log(error);
+                    // eslint-disable-next-line
+                    console.error(error);
                     
                 })
 
