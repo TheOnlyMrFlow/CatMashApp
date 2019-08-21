@@ -11,10 +11,6 @@ import CatAvatar from '../../src/components/CatAvatar'
 const localVue = createLocalVue()
 localVue.prototype.$http = axios
 
-// shallowMount(Component, {
-//   localVue,
-//   router
-// })
 
 describe('App layout', () => {
 
@@ -24,9 +20,7 @@ describe('App layout', () => {
 
 
   it('renders the toolbar title', () => {
-    // arrange
-    
-
+   
     let toolbar = wrapper.find('v-toolbar-stub')
     let titles = toolbar.findAll('span')
     
@@ -47,16 +41,15 @@ describe('Mash component', () => {
     expect(images.length).equals(2)
   })
 
-  // it('images doesnt lap', () => {
-    
-  //   expect(
-  //     images.at(0).right 
-  //   ).to.be.true(4);
+  it('images doesnt lap', () => {
 
-  //   // var overlap = !(rect1.right < rect2.left || 
-  //   //   rect1.left > rect2.right || 
-  //   //   rect1.bottom < rect2.top || 
-  //   //   rect1.top > rect2.bottom)
-  // })
+    var rect1 = images.at(0);
+    var rect2 = images.at(1);
+
+    var overlap = (rect1.right > rect2.left)
+      
+      expect(overlap).to.be.false;
+  })
+
 
 })
