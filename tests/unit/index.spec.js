@@ -1,24 +1,26 @@
-// import { shallowMount } from '@vue/test-utils'
-// import HelloWorld from '@/components/HelloWorld.vue'
-// describe('HelloWorld.vue', () => {
-  //   it('renders props.msg when passed', () => {
-    //     const msg = 'new message'
-    //     const wrapper = shallowMount(HelloWorld, {
-      //       propsData: { msg }
-      //     })
-      //     expect(wrapper.text()).to.include(msg)
-      //   })
-      // })
-      
-      
+
 import { expect } from 'chai'
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, createLocalVue} from '@vue/test-utils'
+
 import App from '../../src/App'
 import MashView from '../../src/components/Mash'
+import axios from 'axios'
+
+import CatAvatar from '../../src/components/CatAvatar'
+
+const localVue = createLocalVue()
+localVue.prototype.$http = axios
+
+// shallowMount(Component, {
+//   localVue,
+//   router
+// })
 
 describe('App layout', () => {
 
-  const wrapper = shallowMount(App)
+  const wrapper = shallowMount(App, {
+    stubs: ['router-link', 'router-view']
+  })
 
 
   it('renders the toolbar title', () => {
@@ -37,17 +39,24 @@ describe('App layout', () => {
 
 describe('Mash component', () => {
 
-  const wrapper = shallowMount(MashView)
+  const wrapper = shallowMount(MashView, {localVue})
 
-  let images = wrapper.findAll('v-img-stub')    
+  let images = wrapper.findAll(CatAvatar)    
 
   it('renders two and only two images', () => {
     expect(images.length).equals(2)
   })
 
-  it(' dvsd ', () => {
+  // it('images doesnt lap', () => {
     
-    expect(images.at(0).props).equals(2)
-  })
+  //   expect(
+  //     images.at(0).right 
+  //   ).to.be.true(4);
+
+  //   // var overlap = !(rect1.right < rect2.left || 
+  //   //   rect1.left > rect2.right || 
+  //   //   rect1.bottom < rect2.top || 
+  //   //   rect1.top > rect2.bottom)
+  // })
 
 })
