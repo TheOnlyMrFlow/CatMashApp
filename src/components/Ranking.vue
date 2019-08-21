@@ -6,12 +6,12 @@
 
             <v-layout row wrap align-center class="images-container">
 
-                 <v-flex xs12 offset-sm2 sm8 offset-md4 md4 text-xs-center v-for="(cat, index) in cats">
+                 <v-flex xs12 offset-sm2 sm8 offset-md4 md4 text-xs-center v-for="(cat, index) in cats" v-bind:key="index">
 
-                     <img :src="cat.image">
                      <v-layout class="rank" text-xs-center align-center justify-center>
                          <span>{{index + 1}}</span>
                     </v-layout>
+                     <img :src="cat.image">
                     
                  </v-flex>
 
@@ -31,11 +31,11 @@
 <script>
 
 import CatAvatar from './CatAvatar'
-import { axios } from 'axios'
 
   export default {
 
       components: {
+          //eslint-disable-next-line
           CatAvatar
       },
 
@@ -61,13 +61,11 @@ import { axios } from 'axios'
 
                     let data = response.data;
 
-                    console.log(data);
                     vm.cats = data;
 
                 })
+                //eslint-disable-next-line
                 .catch(error => {
-
-                    console.log(error);
 
                 })
 
@@ -77,8 +75,6 @@ import { axios } from 'axios'
 </script>
 
 <style>
-
-
 
 .images-container {
     max-height: 75vh;
@@ -92,16 +88,14 @@ import { axios } from 'axios'
 	
 }
 
-
-
 img {
     width: 100%;
 }
 
 .rank {
     position: relative;
-    left: 46%;
-    bottom: 35px;
+    left: 0px;
+    top: 35px;
     border-radius: 50%;
     opacity: 0.7;
     font-size: 2em;
